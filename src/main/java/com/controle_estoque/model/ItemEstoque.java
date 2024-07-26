@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "item")
-public class Item {
+@Table(name = "item_estoque")
+public class ItemEstoque {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,4 +28,5 @@ public class Item {
 
     @ManyToOne
     private LocalEstoque localEstoque;
+
 }
