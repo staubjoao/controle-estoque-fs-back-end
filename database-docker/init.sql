@@ -1,0 +1,1 @@
+CREATE DATABASE controle_estoque_fs;
