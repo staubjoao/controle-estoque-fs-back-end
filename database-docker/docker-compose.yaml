@@ -8,7 +8,7 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - /home/staubjoao/Documents/folhas-sagradas/controle-estoque/back-end/controle-estoque/database-docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - /home/staubjoao/Documents/folhas-sagradas/controle-estoque/back-end/controle-estoque-fs-back-end/database-docker/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./postgres-data:/var/lib/postgresql/data
     networks:
       - postgres-compose-network
