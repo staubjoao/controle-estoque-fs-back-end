@@ -2,6 +2,7 @@ package com.controle_estoque.controller;
 
 import com.controle_estoque.dto.ItemEstoqueDTO;
 import com.controle_estoque.model.ItemEstoque;
+import com.controle_estoque.model.LocalEstoque;
 import com.controle_estoque.service.ItemEstoqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -58,6 +59,17 @@ public class ItemEstoqueController {
             }
         }catch (Exception e) {
             return ResponseEntity.badRequest().body("Erro ao deletar o item: " + e.getMessage());
+        }
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<?> alerar(@PathVariable Long id, @RequestBody ItemEstoque itemEstoque) {
+        itemEstoque.setId(id);
+        try {
+            ItemEstoque itemEstoqueAlterado = itemService.alterar(itemEstoque);
+            return ResponseEntity.ok(itemEstoqueAlterado);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro ao alterar o local de estoque: " + e.getMessage());
         }
     }
 }

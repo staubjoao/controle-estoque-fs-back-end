@@ -44,4 +44,8 @@ public class ItemEstoqueService {
     public void delete(ItemEstoque id) {
         itemEstoqueRepository.delete(id);
     }
+
+    public ItemEstoque alterar(ItemEstoque itemEstoque) {
+        return itemEstoqueRepository.save(itemEstoque);
+    }
 }
