@@ -50,7 +50,7 @@ public class ReceitaService {
     }
 
     public Receita findById(Long id) {
-        return receitaRepository.getById(id);
+        return receitaRepository.findById(id).get();
     }
 
     public void delete(Receita receita) {

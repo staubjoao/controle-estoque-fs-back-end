@@ -2,7 +2,6 @@ package com.controle_estoque.controller;
 
 import com.controle_estoque.dto.ItemEstoqueDTO;
 import com.controle_estoque.model.ItemEstoque;
-import com.controle_estoque.model.LocalEstoque;
 import com.controle_estoque.service.ItemEstoqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
