@@ -1,5 +1,6 @@
 package com.controle_estoque.controller;
 
+import com.controle_estoque.dto.AtualizarQuantidadeEstoqueDTO;
 import com.controle_estoque.dto.ItemEstoqueDTO;
 import com.controle_estoque.model.ItemEstoque;
 import com.controle_estoque.service.ItemEstoqueService;
@@ -32,6 +33,19 @@ public class ItemEstoqueController {
         }
     }
 
+    @PostMapping("/atualiza-estoque")
+    public ResponseEntity<?> adicionarQuantidadeEstoque(@RequestBody AtualizarQuantidadeEstoqueDTO atualizarQuantidadeEstoqueDTO) {
+        try {
+            ItemEstoque itemSalvo = itemService.atualizarQuantidadeEstoque(atualizarQuantidadeEstoqueDTO);
+            if(itemSalvo == null) {
+                return ResponseEntity.badRequest().body("Erro ao atualizar estoque");
+            }
+            return ResponseEntity.ok(itemSalvo);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro ao atualizar o item estoque: " + e.getMessage());
+        }
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> buscar(@PathVariable Long id) {
         try {
@@ -61,7 +75,7 @@ public class ItemEstoqueController {
         }
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> alerar(@PathVariable Long id, @RequestBody ItemEstoque itemEstoque) {
         itemEstoque.setId(id);
         try {

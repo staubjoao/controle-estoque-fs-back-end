@@ -4,16 +4,12 @@ import com.controle_estoque.model.Grandeza;
 import lombok.Data;
 
 @Data
-public class ItemEstoqueDTO {
+public class AtualizarQuantidadeEstoqueDTO {
 
-    private String descricao;
+    private Long idItemEstoque;
 
     private Double quantidade;
 
-    private Double quantidadeMinima;
-
     private Grandeza grandeza;
-
-    private Long localEstoqueId;
 
 }

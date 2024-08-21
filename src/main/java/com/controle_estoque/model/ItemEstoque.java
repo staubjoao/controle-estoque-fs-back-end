@@ -21,6 +21,8 @@ public class ItemEstoque {
     @NotNull
     private Double quantidade;
 
+    private Double quantidadeMinima;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     @NotNull
